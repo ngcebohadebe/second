@@ -20,8 +20,8 @@ def run():
     """
 
     # Use absolute paths as requested
-    file_path_resume = "C:/Users/Ngcebo.Hadebe/OneDrive - Ctrack (PTY) Ltd/Desktop/second/NTH_text.txt"
-    file_path_job = "C:/Users/Ngcebo.Hadebe/OneDrive - Ctrack (PTY) Ltd/Desktop/second/job_text.txt"
+    file_path_resume = "#######/NTH_text.txt"
+    file_path_job = "#######/job_text.txt"
 
     try:
         with open(file_path_resume, 'r', encoding='utf-8') as file:
