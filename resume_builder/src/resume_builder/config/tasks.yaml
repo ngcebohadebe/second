@@ -1,0 +1,46 @@
+extract_keywords_task:
+  description: >
+    Read the following job description provided in {job_description}.
+    Extract a flat list of the most relevant keywords including:
+    - Technical and soft skills
+    - Tools, technologies, and platforms
+    - Certifications and degrees
+    - Domain-specific terms or job-related jargon
+
+    Return only a JSON object with the extracted terms categorized appropriately.
+
+  expected_output: >
+    A valid JSON object with the extracted keywords in the following structure:
+
+    {
+      "skills": [...],
+      "tools_and_technologies": [...],
+      "certifications": [...],
+      "domain_terms": [...]
+    }
+
+    Each array should include concise, relevant keywords derived from the job description.
+
+  output_file: keywords.md
+
+  agent: job_analyst
+
+resume_strategy_task:
+  description: >
+    Using the profile and job requirements obtained from the previous task, tailor 
+    the resume {resume} to highlight the most relevant qualifications. Maintain 
+    the same format as the original resume. Update every section, including the 
+    summary, work experience, skills, and education to better reflect the candidate’s 
+    strengths and how they match the job posting. Do not invent or fabricate any 
+    information. Employ tools or strategies to enhance clarity and impact.
+    
+  expected_output: >
+    An updated resume in the same format as the original that effectively showcases 
+    the candidate's qualifications tailored to the job description.
+
+  output_file: tailored_resume.md
+
+  context: [extract_keywords_task]
+
+  agent: resume_strategist
+
